@@ -20,11 +20,15 @@ public class ListaEmpresasServlet extends HttpServlet {
        
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
+		//acessar no banco de dados todas as empresas criadas no formulário jsp
 		Banco banco = new Banco();
 		List<Empresa> lista = banco.getEmpresas();
 		
+		//enviar para o jsp a lista de empresas já criadas
 		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresasCriadas.jsp");
 		request.setAttribute("listaEmpresas", lista);
 		rd.forward(request, response);
