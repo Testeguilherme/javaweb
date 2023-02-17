@@ -44,6 +44,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
+		//redireciona a página para um local específico
 		response.sendRedirect("listaEmpresas");
 		
 		
