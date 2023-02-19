@@ -20,8 +20,6 @@ public class RemoveEmpresaServlet extends HttpServlet {
 		//o método valueOf da classe Integer tem a função de transformar a String em Integer
 		Integer id = Integer.valueOf(paramId);
 		
-		System.out.println(id);
-		
 		Banco banco = new Banco();
 		banco.removeEmpresa(id);
 		

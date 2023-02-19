@@ -1,6 +1,8 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +27,9 @@ public class MostraEmpresaServlet extends HttpServlet {
 		
 		System.out.println(empresa.getNome());
 		
-		response.sendRedirect("mostraEmpresa.jsp");
+		request.setAttribute("empresa", empresa);
+		RequestDispatcher rd = request.getRequestDispatcher("/formAlteraEmpresa.jsp");
+		rd.forward(request, response);
 		
 	}
 
