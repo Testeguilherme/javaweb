@@ -1,29 +1,20 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.acao;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
+import br.com.alura.gerenciador.modelo.Banco;
+import br.com.alura.gerenciador.modelo.Empresa;
 
+public class ListaEmpresas {
 
-@WebServlet("/listaEmpresas")
-public class ListaEmpresasServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-
-
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
+	
+	public void listaEmp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		//acessar no banco de dados todas as empresas criadas no formulário jsp
 		Banco banco = new Banco();
 		List<Empresa> lista = banco.getEmpresas();
@@ -34,6 +25,6 @@ public class ListaEmpresasServlet extends HttpServlet {
 		
 		rd.forward(request, response);
 		
+		System.out.println("Listando empresas");
 	}
-
 }
