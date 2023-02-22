@@ -17,7 +17,7 @@ public class NovaEmpresas {
 	
 	
 	
-		public void novaEmp(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		public String novaEmp(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 			
 			System.out.println("Criando nova empresa");
 			
@@ -44,7 +44,7 @@ public class NovaEmpresas {
 			banco.adiciona(empresa);
 			
 			//redireciona a página para um local específico
-			response.sendRedirect("entrada?acao=ListaEmpresas");
+			return "redirect:entrada?acao=ListaEmpresas";
 		
 		}
 

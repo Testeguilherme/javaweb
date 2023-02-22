@@ -30,7 +30,5 @@ public class Empresa {
 		this.dataAbertura = dataAbertura;
 	}
 	
-	
-	
 
 }

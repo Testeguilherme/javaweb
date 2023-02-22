@@ -12,7 +12,9 @@ import br.com.alura.gerenciador.modelo.Empresa;
 
 public class MostraEmpresas {
 	
-	public void mostraEmp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String mostraEmp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("Mostrando dados das empresas");
 		
 		//O método getParameter sempre devolve uma String
 		String paramId = request.getParameter("id");
@@ -25,10 +27,10 @@ public class MostraEmpresas {
 		System.out.println(empresa.getNome());
 		
 		request.setAttribute("empresa", empresa);
-		RequestDispatcher rd = request.getRequestDispatcher("/formAlteraEmpresa.jsp");
-		rd.forward(request, response);
 		
-		System.out.println("Mostrando dados das empresas");
+		
+		return "forward:formAlteraEmpresa.jsp";
+	
 		
 	}
 
